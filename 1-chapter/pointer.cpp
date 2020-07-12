@@ -1,13 +1,36 @@
 #include <iostream>
-using namespace std;//c++æ ‡å‡†ä¸­çš„æ ‡å‡†ç±»åº“çš„å˜é‡ä¸å‡½æ•°éƒ½å±äºå‘½åç©ºé—´std
+using namespace std; //c++±ê×¼ÖĞµÄ±ê×¼Àà¿âµÄ±äÁ¿Óëº¯Êı¶¼ÊôÓÚÃüÃû¿Õ¼ästd
 
-int main() {
-    int * a;                     //å£°æ˜intç±»å‹æŒ‡é’ˆ
-    a=new int(3);                //åˆ†é…ä¸‰ä¸ªintç±»å‹çš„å‚¨å­˜ç©ºé—´ç»™æŒ‡é’ˆa
-    for(int i=0;i<3;i++){        //å®šä¹‰å¯¹è±¡iåˆå§‹å€¼ä¸º0
-        cin>>*(a+i);             //æŠŠè¾“å…¥çš„æ•°æ®å­˜å…¥æŒ‡å®šåœ°å€
+void zhixiang();
+void loopCinPointer();
+int main()
+{
+    zhixiang();
+    // loopCinPointer();
+}
+
+void loopCinPointer()
+{
+    int *a;         //ÉùÃ÷intÀàĞÍÖ¸Õë
+    a = new int(3); //·ÖÅäÈı¸öintÀàĞÍµÄ´¢´æ¿Õ¼ä¸øÖ¸Õëa
+    for (int i = 0; i < 3; i++)
+    {                    //¶¨Òå¶ÔÏói³õÊ¼ÖµÎª0
+        cin >> *(a + i); //°ÑÊäÈëµÄÊı¾İ´æÈëÖ¸¶¨µØÖ·
     }
-    for(int i=0;i<3;i++){
-        cout <<"è¾“å‡ºï¼š"<< *(a+i)<<endl; //è¾“å‡ºæŒ‡é’ˆåœ°å€ä¸­çš„ä¸‰ä¸ªå€¼
+    for (int i = 0; i < 3; i++)
+    {
+        cout << "Êä³ö£º" << *(a + i) << endl; //Êä³öÖ¸ÕëµØÖ·ÖĞµÄÈı¸öÖµ
     }
+}
+
+void zhixiang()
+{
+    int a = 1;
+    int b = 2;
+    int c = 3;
+    int *p = &a;
+    p = &b;
+    b=c;
+    cout << a << endl;//1
+    cout << *p << endl;//3
 }
