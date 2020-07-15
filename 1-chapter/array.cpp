@@ -1,52 +1,84 @@
 #include <iostream>
 #include <algorithm>
 #include <functional>
-#include <iterator>
 using namespace std;
 
-typedef int arr[5]; //Ê¡ÂÔµôÁËÊı×éµÄ´óĞ¡£¬Êı×éµÄ´óĞ¡ÔòÎª³õÊ¼»¯Ê±ÔªËØµÄ¸öÊı
+typedef int arr[5]; //çœç•¥æ‰äº†æ•°ç»„çš„å¤§å°ï¼Œæ•°ç»„çš„å¤§å°åˆ™ä¸ºåˆå§‹åŒ–æ—¶å…ƒç´ çš„ä¸ªæ•°
 int main()
 {
+    int len = 5;
+    arr arr1 = {1, 2, 3, 4, 5};
+    reverse(arr1, arr1 + len); //æ•°ç»„å…ƒç´ åè½¬æ’åˆ—
+    // cout << "åè½¬åï¼š" << arr1[0] << endl;
 
-  int len = 5;
-  arr arr1 = {1, 2, 3, 4, 5};
-  cout << arr1 << endl;     //arr1Ä¬ÈÏÊı×éµÚÒ»¸öÔªËØµÄµØÖ·
-  cout << &arr1[0] << endl; //µÈÓÚarr1
+    int arr2[5];
+    /**
+     * copy(),å¤åˆ¶è¿‡ç¨‹æ˜¯å·¦(åŒ…æ‹¬)é—­å³(ä¸åŒ…æ‹¬)å¼€çš„ï¼Œè€Œä¸”ç¬¬ä¸‰ä¸ªå‚æ•°æ˜¯æä¾›å¦ä¸€ä¸ªæœ‰åºç»„çš„å¤´åœ°å€ã€‚
+     **/ 
+    copy(arr1, arr1 + len, arr2);         //æŠŠarr1åŸæ ·å¤åˆ¶åˆ°arr2ä¸­
+    reverse_copy(arr1, arr1 + len, arr2); //æŠŠarr1é€†å‘å¤åˆ¶åˆ°arr2ä¸­
+    // cout << "arr2ï¼š" << arr2 << endl;         //ç›´æ¥æ‰“å°æ•°ç»„ï¼Œè¾“å‡ºæ•°ç»„é¦–ä½çš„é¦–åœ°å€
+    // cout << "arr2ã€0ã€‘ï¼š" << arr2[0] << endl; //1
 
-  cout << arr1 + 1 << endl; //arr1==arr1[1],Ò²¾ÍÊÇÊı×éµÄµÚ¶ş¸öÔªËØ
-  cout << &arr1[1] << endl; //µÈÓÚarr1+1
+    sort(arr2, arr2 + len); //é»˜è®¤å‡å¹‚æ’åº
+    // cout << "é»˜è®¤æ’åºç»“æœï¼š" << arr2[0] << endl; //1
+    sort(arr2, arr2 + len, greater<int>()); //é™å¹‚æ’åº
+    // cout << "é™å¹‚æ’åºç»“æœï¼š" << arr2[4] << endl; //5
 
-  reverse(arr1, arr1 + len); //Êı×éÔªËØ·´×ªÅÅÁĞ
-  cout << "·´×ªºó£º" << arr1[0] << endl;
+    /**
+     *find()
+     **/
+    int *x = find(arr2, arr2 + len, 2); //æŸ¥æ‰¾æ•°ç»„å†…æ˜¯å¦å­˜åœ¨ 2 , xæ˜¯intç±»å‹çš„æŒ‡é’ˆ
+                                        //   int *d=find(arr1.begin(),arr1.end(),2);//æŸ¥æ‰¾æ•°ç»„å†…æ˜¯å¦å­˜åœ¨ 2 ,
+    if (x == arr2 + len)
+    { //å¦‚æœä¸å­˜åœ¨ åˆ™è¿”å›arr2.len/arr2.end(),è¿™é‡Œéœ€è¦æ³¨æ„çš„æ˜¯ï¼Œarr2.len/arr2.end()ä¸åœ¨æŸ¥æ‰¾èŒƒå›´å†…ã€‚
+        // cout << "æ²¡æœ‰2" << endl;
+    }
+    else
+    { //å­˜åœ¨å°±è¿”å›æ‰€æœç´¢çš„å€¼'*x','x'æ˜¯å€¼çš„æŒ‡é’ˆåœ°å€
+        // cout << "æœ‰å€¼ä¸º2çš„å…ƒç´ " << endl;
+    }
+    //   cout <<*x<<endl;
+    //   cout <<arr2+len<<endl;
 
-  int arr2[5];
-  copy(arr1, arr1 + len, arr2);             //°Ñarr1Ô­Ñù¸´ÖÆµ½arr2ÖĞ
-  reverse_copy(arr1, arr1 + len, arr2);     //°Ñarr1ÄæÏò¸´ÖÆµ½arr2ÖĞ
-  cout << "arr2£º" << arr2 << endl;         //Ö±½Ó´òÓ¡Êı×é£¬Êä³öÊı×éÊ×Î»µÄÊ×µØÖ·
-  cout << "arr2¡¾0¡¿£º" << arr2[0] << endl; //1
+    /**
+    * copy(arr1,arr1+len,ostream_iterator<Type>(cout,"\n"));
+    **/
+    //å¯ä»¥å°†â€˜ostream_iteratorâ€™ç®€å•çš„ç†è§£ä¸ºè¾“å‡ºæµæ“ä½œç¬¦ï¼Œå°–æ‹¬å·å†…æ˜¯æ•°ç»„å…ƒç´ çš„æ•°æ®ç±»å‹ï¼Œ
+    //ä¾‹å¥å°†æ•°ç»„å†…å®¹æŒ‰ç…§æ­£å‘è¾“å‡ºçš„æ–¹å¼æ‰“å°å‡ºæ¥ï¼Œè¾“å‡ºçš„æ–¹å¼å·²æ¯ä¸ªå…ƒç´ é—´ä»¥â€œ,â€éš”å¼€ï¼Œä¹Ÿå¯ä»¥ç”¨â€˜\nâ€™ã€ç©ºæ ¼æˆ–å…¶ä»–å­—ç¬¦éš”å¼€
+    // copy(arr1, arr1 + len, ostream_iterator<int>(cout, "\n"));
+    // reverse_copy(arr1, arr1 + len, ostream_iterator<int>(cout, ",")); //åè½¬è¾“å‡ºæ•°ç»„
 
-  sort(arr2, arr2 + len);                      //Ä¬ÈÏÉıÃİÅÅĞò
-  cout << "Ä¬ÈÏÅÅĞò½á¹û£º" << arr2[0] << endl; //1
+    /**
+     *ä¸€ç»´æ•°ç»„çš„å±€éƒ¨æ“ä½œ
+     **/
+    cout << '-' << endl;
+    double arr3[] = {5.1, 4.3, 2.3, 3.2}, arr4[8] = {8};           //arr4ï¼šé•¿åº¦ä¸º8ã€é¦–ä½å…ƒç´ ä¸º8çš„æ•°ç»„
+    copy(arr3 + 2, arr3 + 4, ostream_iterator<double>(cout, ",")); //è¾“å‡ºarr3ä¸‹æ ‡ä¸º2å’Œ4çš„å…ƒç´ 
+    cout << endl;
+    reverse_copy(arr3 + 2, arr3 + 4, ostream_iterator<double>(cout, ",")); //é€†å‘å¹¶è¾“å‡º
 
-  sort(arr2, arr2 + len, greater<int>());      //½µÃİÅÅĞò
-  cout << "½µÃİÅÅĞò½á¹û£º" << arr2[4] << endl; //5
+    copy(arr3, arr3 + 4, &arr4[4]); //å°†æ•°ç»„arrå¤åˆ¶åˆ°æ•°ç»„arr4çš„å°¾éƒ¨
+    cout << endl;
+    copy(arr4, arr4 + 8, ostream_iterator<double>(cout, ","));
+    cout << endl;
+    sort(arr3 + 1, arr3 + 3);                                  //å¯¹éƒ¨åˆ†æ•°ç»„å…ƒç´ ï¼ˆ1-2ï¼‰å‡å¹‚æ’åº
+    copy(arr3, arr3 + 4, ostream_iterator<double>(cout, ",")); //è¾“å‡ºå®‰arr3ï¼›
+    cout << endl;
+    sort(arr4, arr4 + 6, greater<double>()); //å¯¹éƒ¨åˆ†(0-5)æ•°ç»„å…ƒç´ è¿›è¡Œé™å¹‚æ’åˆ—
+    copy(arr4, arr4 + 8, ostream_iterator<double>(cout, ","));
+    cout << endl;
 
-  int *x = find(arr2, arr2 + len, 11); //²éÕÒÊı×éÄÚÊÇ·ñ´æÔÚ 2, ´æÔÚÔò»á·µ»ØÔªËØÖ¸Õë
-
-  if (x == arr2 + len) //arr2 + lenÔªËØÏàµ±ÓÚarr2[5]£¬arr[5]²»´æÔÚ
-  {
-    cout << "Ã»ÓĞ2" << endl;
-  }
-  else
-  {
-    cout << "ÓĞÖµÎª2µÄÔªËØ" << endl;
-  }
-  cout << x << endl;
-  cout << *x << endl;
-  copy(arr2, arr2 + len, ostream_iterator<int>(cout, "-"));//Õı³£Êä³ö
-  reverse_copy(arr2,arr2+len,ostream_iterator<int>(cout,"-"));//·´×ªÊä³ö
-
-  cout << "arr2Êä³ö:" << arr2 << endl;
-
-  // cout <<'arr2·´×ªÊä³ö:'<<
+    /**
+     * å¯¹å­—ç¬¦æ•°çš„æ“ä½œ
+     **/
+    cout << '-' << endl;
+    char arrStr1[] = "wearehere!", b[1];
+    reverse(arrStr1, arrStr1 + 10); //æ•°ç»„å…ƒç´ é€†å‘
+    copy(arrStr1, arrStr1 + 10, ostream_iterator<char>(cout));
+    cout << endl;
+    copy(arrStr1,arrStr1+11,b);
+    sort(arrStr1,arrStr1);//é»˜è®¤å‡å¹‚
+    cout <<arrStr1<<endl;
+    cout <<"bï¼š"<<b<<endl;
 }
