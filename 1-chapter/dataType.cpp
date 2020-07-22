@@ -11,6 +11,22 @@ int main()
 void TypeString()
 {
     string str = "hello";
-    cout << str.find("e") << endl;//è¿”å›žå­—ç¬¦æ‰€åœ¨ä½ç½®ç´¢å¼•
-    cout << str.size() << endl;
+    cout << str.find("e", 1) << endl;  //·µ»Ø×Ö·ûËùÔÚÎ»ÖÃË÷Òý,µÚ¶þ¸ö²ÎÊýÎª¿ªÊ¼ËÑË÷µÄÏÂ±ê£¬²»Ö¸Ã÷µÄÇé¿öÏÂÄ¬ÈÏ´Ó0¿ªÊ¼
+    cout << str.rfind("e", 1) << endl; //~  ºÍfind()µÄÇø±ðÔÚÓÚµÚ¶þ¸ö²ÎÊý£¬²éÕÒµ½µÚ¶þ¸ö²ÎÊýËùÖ¸¶¨µÄÏÂ±êÎªÖ¹£¬ÕÒ²»µ½·µ»ØÎÞÇî´óÊý
+    cout << str.find_first_of("e") << endl; //¼ì²â×Ö·û´®Ê×´Î³öÏÖµÄÎ»ÖÃ
+    cout << str.size() << endl;        //×Ö·û´®³¤¶È£¬Í¬ÏÂ
+    cout << str.length() << endl;
+
+    //É¾³ý
+    str.erase(4);
+    cout << "Ö¸¶¨¿ªÊ¼-É¾³ýºó£º" << str << "\n";
+    str.erase(1, 3);
+    cout << "Ö¸¶¨¿ªÊ¼ºÍÉ¾³ý³¤¶È-É¾³ýºó£º" << str << "\n";
+
+    //²åÈë
+    str.insert(1, "ello world");
+    cout << "²åÈëºó£º" << str << "\n";
+
+    //»ñÈ¡×Ö·û´®
+    cout << "»ñÈ¡´ÓÏÂ±ê1¿ªÊ¼³¤¶ÈÎª3×Ö·û£º" << str.substr(1, 3) << "\n";
 }

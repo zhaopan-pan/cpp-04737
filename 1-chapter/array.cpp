@@ -1,6 +1,7 @@
 #include <iostream>
 #include <algorithm>
 #include <functional>
+#include <iterator>
 using namespace std;
 
 typedef int arr[5]; //省略掉了数组的大小，数组的大小则为初始化时元素的个数
@@ -14,7 +15,7 @@ int main()
     int arr2[5];
     /**
      * copy(),复制过程是左(包括)闭右(不包括)开的，而且第三个参数是提供另一个有序组的头地址。
-     **/ 
+     **/
     copy(arr1, arr1 + len, arr2);         //把arr1原样复制到arr2中
     reverse_copy(arr1, arr1 + len, arr2); //把arr1逆向复制到arr2中
     // cout << "arr2：" << arr2 << endl;         //直接打印数组，输出数组首位的首地址
@@ -77,8 +78,15 @@ int main()
     reverse(arrStr1, arrStr1 + 10); //数组元素逆向
     copy(arrStr1, arrStr1 + 10, ostream_iterator<char>(cout));
     cout << endl;
-    copy(arrStr1,arrStr1+11,b);
-    sort(arrStr1,arrStr1);//默认升幂
-    cout <<arrStr1<<endl;
-    cout <<"b："<<b<<endl;
+    copy(arrStr1, arrStr1 + 11, b);
+    sort(arrStr1, arrStr1); //默认升幂
+    cout << arrStr1 << endl;
+    cout << "b：" << b << endl;
+
+    int arr11[4] = {1, 2, 4, 5};
+    cout <<arr11+3<<endl;
+    for(int i=0;i<4;i++){
+    cout <<"下标："<<arr11[i]<<"-"<<&arr11[i]<<endl;
+    }
+    copy(arr11, arr11 + 4, ostream_iterator<double>(cout, ","));
 }
