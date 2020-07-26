@@ -8,7 +8,7 @@ using namespace std;
  *          2、一个函数可以被多个类声明为友元函数，这样就可以访问多个类中的 private 成员。   
  */
 
-class Address; //提前声明Address类 一般情况下，类必须在正式声明之后才能使用；但是某些情况下，只要做好提前声明，也可以先使用。
+class Address; //不完全类声明，提前声明Address类 一般情况下，类必须在正式声明之后才能使用；但是某些情况下，只要做好提前声明，也可以先使用。
 //声明Student类
 class Student
 {

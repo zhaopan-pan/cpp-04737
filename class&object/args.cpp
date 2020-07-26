@@ -8,6 +8,7 @@ void swapYy(int a, int &);
 int main()
 {
     int b = 2;
+    cout <<"相处"<< 1%7 << endl;
     int c = 3;
     int arr[] = {1, 2};
     swap(1, &b);  //传值和变量地址值传递

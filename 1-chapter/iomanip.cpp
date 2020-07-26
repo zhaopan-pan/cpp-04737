@@ -2,17 +2,17 @@
 #include <iomanip>
 using namespace std;
 
-//Êä³ö¸ñÊ½
+//è¾“å‡ºæ ¼å¼
 int main()
 {
     int num = 123;
     int nums = 321;
-    cout << "10½øÖÆ-dec:" << dec << num << endl;
-    cout << "8½øÖÆ-oct:" << oct << num << endl;
-    cout << "16½øÖÆ-hex:" << hex << num << endl;
-    cout << "10½øÖÆ-dec:" << dec << num << endl;//Èç¹û×îºó²»×ªÎª10½øÖÆ£¬numºóÃæµÄÊä³ö¶¼»áÊÇ16½øÖÆ£¬
+    cout << "10è¿›åˆ¶-dec:" << dec << num << endl;
+    cout << "8è¿›åˆ¶-oct:" << oct << num << endl;
+    cout << "16è¿›åˆ¶-hex:" << hex << num << endl;
+    cout << "10è¿›åˆ¶-dec:" << dec << num << endl;//å¦‚æœæœ€åä¸è½¬ä¸º10è¿›åˆ¶ï¼Œnumåé¢çš„è¾“å‡ºéƒ½ä¼šæ˜¯16è¿›åˆ¶ï¼Œ
     int &b=num;
-    b=nums;      //Í¨¹ıÒıÓÃ¸Ä±änum,Õâ¸öÖ¸ÕëÒ²ÊÇÈç´Ë
+    b=nums;      //é€šè¿‡å¼•ç”¨æ”¹å˜num,è¿™ä¸ªæŒ‡é’ˆä¹Ÿæ˜¯å¦‚æ­¤
     cout <<b<<endl;   //321
     cout <<num<<endl; //321
     return 0;

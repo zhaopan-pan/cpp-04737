@@ -1,4 +1,6 @@
 #include <iostream>
+#include <string>
+#include <cstring>
 using namespace std;
 
 void TypeString();
@@ -11,22 +13,38 @@ int main()
 void TypeString()
 {
     string str = "hello";
-    cout << str.find("e", 1) << endl;  //·µ»Ø×Ö·ûËùÔÚÎ»ÖÃË÷Òý,µÚ¶þ¸ö²ÎÊýÎª¿ªÊ¼ËÑË÷µÄÏÂ±ê£¬²»Ö¸Ã÷µÄÇé¿öÏÂÄ¬ÈÏ´Ó0¿ªÊ¼
-    cout << str.rfind("e", 1) << endl; //~  ºÍfind()µÄÇø±ðÔÚÓÚµÚ¶þ¸ö²ÎÊý£¬²éÕÒµ½µÚ¶þ¸ö²ÎÊýËùÖ¸¶¨µÄÏÂ±êÎªÖ¹£¬ÕÒ²»µ½·µ»ØÎÞÇî´óÊý
-    cout << str.find_first_of("e") << endl; //¼ì²â×Ö·û´®Ê×´Î³öÏÖµÄÎ»ÖÃ
-    cout << str.size() << endl;        //×Ö·û´®³¤¶È£¬Í¬ÏÂ
+    cout << str.find("e", 1) << endl;       //è¿”å›žå­—ç¬¦æ‰€åœ¨ä½ç½®ç´¢å¼•,ç¬¬äºŒä¸ªå‚æ•°ä¸ºå¼€å§‹æœç´¢çš„ä¸‹æ ‡ï¼Œä¸æŒ‡æ˜Žçš„æƒ…å†µä¸‹é»˜è®¤ä»Ž0å¼€å§‹
+    cout << str.rfind("e", 1) << endl;      //~  å’Œfind()çš„åŒºåˆ«åœ¨äºŽç¬¬äºŒä¸ªå‚æ•°ï¼ŒæŸ¥æ‰¾åˆ°ç¬¬äºŒä¸ªå‚æ•°æ‰€æŒ‡å®šçš„ä¸‹æ ‡ä¸ºæ­¢ï¼Œæ‰¾ä¸åˆ°è¿”å›žæ— ç©·å¤§æ•°
+    cout << str.find_first_of("e") << endl; //æ£€æµ‹å­—ç¬¦ä¸²é¦–æ¬¡å‡ºçŽ°çš„ä½ç½®
+    cout << str.size() << endl;             //å­—ç¬¦ä¸²é•¿åº¦ï¼ŒåŒä¸‹
     cout << str.length() << endl;
 
-    //É¾³ý
+    //åˆ é™¤
     str.erase(4);
-    cout << "Ö¸¶¨¿ªÊ¼-É¾³ýºó£º" << str << "\n";
+    cout << "æŒ‡å®šå¼€å§‹-åˆ é™¤åŽï¼š" << str << "\n";
     str.erase(1, 3);
-    cout << "Ö¸¶¨¿ªÊ¼ºÍÉ¾³ý³¤¶È-É¾³ýºó£º" << str << "\n";
+    cout << "æŒ‡å®šå¼€å§‹å’Œåˆ é™¤é•¿åº¦-åˆ é™¤åŽï¼š" << str << "\n";
 
-    //²åÈë
+    //æ’å…¥
     str.insert(1, "ello world");
-    cout << "²åÈëºó£º" << str << "\n";
+    cout << "æ’å…¥åŽï¼š" << str << "\n";
 
-    //»ñÈ¡×Ö·û´®
-    cout << "»ñÈ¡´ÓÏÂ±ê1¿ªÊ¼³¤¶ÈÎª3×Ö·û£º" << str.substr(1, 3) << "\n";
+    //èŽ·å–å­—ç¬¦ä¸²
+    cout << "èŽ·å–ä»Žä¸‹æ ‡1å¼€å§‹é•¿åº¦ä¸º3å­—ç¬¦ï¼š" << str.substr(1, 3) << "\n";
+
+    char *strChar = (char *)"hahaha";
+    string str3 = "hahaha";
+    int str2Length = strlen(strChar);
+    int str3Length = str3.length();
+    cout << str2Length << endl;
+    for (int i = 0; i < str2Length; i++)
+    {
+        if (i > 5)
+            continue;
+        else
+        {
+
+            cout << *(strChar + i) << endl; //ä»ŽæŒ‡é’ˆåœ°å€ä¸­èŽ·å– ä¹Ÿå¯ä»¥ç›´æŽ¥æ ¹æ®ä¸‹æ ‡å–å€¼ å¦‚strChar[i]
+        }
+    }
 }

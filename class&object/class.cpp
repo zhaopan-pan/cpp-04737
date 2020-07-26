@@ -35,5 +35,7 @@ int main()
 {
     Student stu("小明", 21, 43.5f);
     stu.say();
+    Student *s = new Student();
+    s->say();
     return 0;
 };

@@ -66,5 +66,6 @@ int main()
     int total = Student::getTotal();
     float points = Student::getPoints();
     cout << "当前共有" << total << "名学生，总成绩是" << points << "，平均分是" << points / total << endl;
+
     return 0;
 }

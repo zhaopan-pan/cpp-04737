@@ -30,7 +30,12 @@ void zhixiang()
     int c = 3;
     int *p = &a;
     p = &b;
-    b=c;
-    cout << a << endl;//1
-    cout << *p << endl;//3
+    b = c;
+    cout << a << endl;  //1
+    cout << *p << endl; //3
+    int a1 = 12;
+    int a2 = 13;
+    const int *p1 = &a1;
+    p1 = &a2;
+    cout << *p1 << endl;
 }
