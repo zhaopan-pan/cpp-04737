@@ -7,6 +7,8 @@ protected:
     int x, y;
 
 public:
+    int aa;
+
     Point(int a, int b)
     {
         cout << "a=" << a << "\n"
@@ -28,6 +30,7 @@ protected:
     int x, y;
 
 public:
+    int aa;
     Point2() {}
     Point2(int a, int b)
     {
@@ -71,9 +74,10 @@ int main()
     ra.Point2::show();
     Point2 p(11, 12);
     Ractangle rac(5, 6, 7, 8);
-    Point2 &pp = rac;//rac属于Point2
+    Point2 &pp = rac; //rac属于Point2
     pp.show();
     Ractangle *ppp = &rac;
     ppp->Point::show();
+    ppp->Point::aa;
     return 0;
 }
