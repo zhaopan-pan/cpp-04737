@@ -14,7 +14,7 @@ public:
 /**
  * @brief  数组对象
  * @note
- * @retval 
+ * @retval
  */
 int main()
 {
