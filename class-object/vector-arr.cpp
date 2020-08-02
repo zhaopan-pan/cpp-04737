@@ -6,8 +6,10 @@ int main()
 {
     int arr[5] = {1, 2, 3, 4, 7};
     vector<int> v(arr, arr + 5); //arr:开始，arr+5：结束
+    vector<int> v1(v);           //用已有的v初始化v1
     cout << v.max_size() << endl;
     cout << v.size() << endl;
+    cout << "v1.size():" << v1.size() << endl;
     cout << "capacity:" << v.capacity() << endl; //初始值为已申请空间大小，超出一个，自动翻倍
     cout << "第一个元素:" << v.front() << endl;  //返回第一个元素
     cout << "最后一个元素:" << v.back() << endl; //返回最后一个元素

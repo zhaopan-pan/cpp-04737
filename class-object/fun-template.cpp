@@ -27,8 +27,26 @@ void priter(complex<T> a)
 {
     cout << "实锟斤拷为:" << a.real() << endl;
     cout << "锟介部为锟斤拷" << a.imag() << endl;
-}
+};
 
+class Max
+{
+    int x;
+    int y;
+
+public:
+    int getX();
+    Max(int a, int b)
+    {
+        x = a;
+        y = b;
+    };
+    int getMax()
+    {
+        priter(complex<int>(1, 2));
+        return x > y ? x : y;
+    };
+};
 int main()
 {
     cout << maxNum(1, 2) << endl;
@@ -39,5 +57,7 @@ int main()
     cout << (int)1.2 << endl;               //1
     priter(complex<int>(1, 2));
     priter(complex<int>(1.1, 2.2));
+    int a=12;
+    int *p=&a;
     return 0;
 }

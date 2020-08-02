@@ -24,6 +24,7 @@ public:
     {
         cout << "out" << endl;
     }
+
 private:
     string m_s;
 };

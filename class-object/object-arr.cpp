@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cstring>
 using namespace std;
 
 class Person
@@ -11,7 +12,7 @@ public:
     // Person(string name, int cout) : p_name(name), p_cout(cout){};
     void set(string, int);
     void say(string);
-} P[3];//全局声明对象数组,相当于 Person P[3];
+} P[3]; //全局声明对象数组,相当于 Person P[3];
 
 void Person::set(string name, int cout)
 {
@@ -29,5 +30,6 @@ int main()
     P[0].say("威少");
     P[1].set("威少1", 12);
     P[2].set("威少2", 12);
+    string str = "";
     return 0;
 }

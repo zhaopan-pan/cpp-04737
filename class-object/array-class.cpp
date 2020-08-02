@@ -2,6 +2,7 @@
 using namespace std;
 class Test
 {
+    public:
     int num;
 
 public:
@@ -27,5 +28,13 @@ int main()
         // cout << two[i].getNum() << endl;
         cout << two[i]->getNum() << endl;
     }
+    const int num = 12;
+    int arrs[num];
+    for (int i = 0; i <= num; i++)
+    {
+        arrs[i] = i;
+    }
+    cout << arrs[4] << endl;
+
     return 0;
 }

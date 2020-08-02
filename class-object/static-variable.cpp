@@ -32,6 +32,7 @@ private: //静态成员变量
 
 public:
     static int aaa;
+    Student(){};
     Student(const char *name, int age, float score);
     void show();
     ~Student();
