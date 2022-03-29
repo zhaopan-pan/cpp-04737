@@ -14,7 +14,7 @@ c++ 程序设计 04737
   code run直接运行会把编译后文件直接输出到当前目录，文件一多容易比较混乱，打开设置，在设置中搜索`coderun`,在`setting.json`文件中找到code-runner.executorMap配置项，给C、C++配置以下命令可以将编译后的文件输出到指定文件夹，然后把.output-file添加`.gitignore`文件中，不论是写代码还是提交代码，有木有感觉清爽很多呢？
 ### window:
 ```c++
-"cpp": "$path=-join ($dir,'\\.output-file');$exist=Test-Path $path;if ($exist -eq $False) {mkdir $path};cd $dir;$outpath=-join ($path,'/$fileNameWithoutExt'); g++ -std=c++11 $fileName -o $outpath;  ;if ($?){./.output-file/$fileNameWithoutExt}",
+"cpp": "$path=-join ('$workspaceRoot\\','\\.output-file');$exist=Test-Path $path;if ($exist -eq $False) {mkdir $path};$outpath=-join ($path,'/$fileNameWithoutExt');cd $dir; g++ -std=c++11 $fileName -o $outpath;mv -Force $fileName $path;cd $workspaceRoot; if ($?){./.output-file/$fileNameWithoutExt};",
 ```
 
 ### Mac
