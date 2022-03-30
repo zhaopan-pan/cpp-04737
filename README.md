@@ -19,6 +19,6 @@ c++ 程序设计 04737
 
 ### Mac
 ```sh
-		"cpp": "paths=$workspaceRoot/.output-file; if test ! -e $paths; then; mkdir $paths; fi; cd $dir && clang++ -std=c++17 -stdlib=libc++ -g $fileName -o $paths/$fileNameWithoutExt && mv $dir/$fileName $paths && $paths/$fileNameWithoutExt && cd $workspaceRoot",
-		"c": "paths=$workspaceRoot/.output-file; if test ! -e $paths; then; mkdir $paths; fi; cd $dir && gcc $fileName -o $paths/$fileNameWithoutExt && mv $dir/$fileName $paths && $paths/$fileNameWithoutExt && cd $workspaceRoot",
+"cpp": "paths=$workspaceRoot/.output-file; if test ! -e $paths; then; mkdir $paths; fi; cd $dir && clang++ -std=c++17 -stdlib=libc++ -g $fileName -o $paths/$fileNameWithoutExt && mv $dir/$fileName $paths && $paths/$fileNameWithoutExt && cd $workspaceRoot",
+"c": "paths=$workspaceRoot/.output-file; if test ! -e $paths; then; mkdir $paths; fi; cd $dir && gcc $fileName -o $paths/$fileNameWithoutExt && mv $dir/$fileName $paths && $paths/$fileNameWithoutExt && cd $workspaceRoot",
 ```
